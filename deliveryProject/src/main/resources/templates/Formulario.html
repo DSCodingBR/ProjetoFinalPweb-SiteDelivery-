@@ -1,0 +1,75 @@
+<!DOCTYPE html> <!-- HTML 5 -->
+<html lang="pt-br">
+<!-- Portugues Brasil -->
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+	<meta charset="UTF-8"><!-- Suporta Acentuacão -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulário</title>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: auto; width: 220px;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/prato/listar">&#127829;</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<b>Menu de Cadastro</b>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/prato/formulario">Cadastrar Novos Pratos</a></li>
+							<li><a class="dropdown-item" href="/prato/listar">Listar Todas os Pratos</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">;...;</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+</head>
+
+<body>
+
+
+
+
+	<form method="post" action="/prato/salvar" th:object="${prato}" style="margin: auto; width: 220px;" enctype="multipart/form-data">
+
+		<input type="hidden" th:field="*{codigo}" />
+
+	
+			<div class="form-group">
+				<label for="formGroupExampleInput"><b>Nome do Prato:</b></label>
+				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome do Prato?" th:field="*{nome}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput1"><b>Preço do Prato:</b></label>
+				<input type="number" class="form-control" id="formGroupExampleInput1" placeholder="Qual Preço?" th:field="*{preco}" >
+			</div>
+			IMAGEM : <input type="file" name="imagem"> <br>
+
+		<br>
+		<button type="submit" class="btn btn-primary" value="Cadastrar"><b>Salvar</b></button>
+		
+
+	</form>
+
+
+
+	<script src="/js/bootstrap.min.js"> </script>
+</body>
+
+</html>
