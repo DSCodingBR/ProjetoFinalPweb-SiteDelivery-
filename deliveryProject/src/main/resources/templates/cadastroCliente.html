@@ -2,7 +2,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<title>Formulário de Cadastro e Login do Admin</title>
+	<title>Formulário de Cadastro e Login do Cliente</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
@@ -10,21 +10,42 @@
 <body>
 	<div class="container">
 
+
 		<div class="content">
-			
 			<!--FORMULÁRIO DE CADASTRO-->
 			<div id="cadastro">
 			
-				<form method="POST" action="/gerente/salvar" th:object="${gerente}">
+				<form method="POST" action="/cliente/salvar" th:object="${cliente}">
 				
-					<input type="hidden" th:field="*{codigo}" />
+					<input type="hidden" th:field="*{id}" />
 					
 					<div class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
 						<span th:text="${mensagem}"></span>
 					</div>
 					
-					<h1>Cadastro Admin</h1>
+					<h1>Cadastro Cliente</h1>
 
+
+					<p>
+						<label for="nome_cad">Nome</label>
+						<input id="nome_cad" th:field="*{nome}" required="required" type="text" placeholder="Ex:Nome" />
+					</p>
+					
+					<p>
+						<label for="nome_cad">Cpf</label>
+						<input id="nome_cad" th:field="*{cpf}" required="required" type="text" placeholder="Ex:054.808.453-09" />
+					</p>
+					
+					<p>
+						<label for="nome_cad">Endereço</label>
+						<input id="nome_cad" th:field="*{endereco}" required="required" type="text" placeholder="Ex:Rua...Tal Bairr.. Tall Cidade.... Tal" />
+					</p>
+					
+					<p>
+						<label for="nome_cad">Data de Nascimento</label>
+						<input id="nome_cad" th:field="*{dataNascimento}" required="required" type="text" placeholder="Ex:Rua...Tal Bairr.. Tall Cidade.... Tal" />
+					</p>
+					
 					<p>
 						<label for="nome_cad">Usuario</label>
 						<input id="nome_cad" th:field="*{usuario}" required="required" type="text" placeholder="Ex:nome.sobrenome" />
@@ -46,7 +67,7 @@
 
 					<p class="link">
 						Já tem conta?
-						<a href="/gerente/login"> Ir para Login </a>
+						<a href="/cliente/loginCliente"> Ir para Login </a>
 					</p>
 				</form>
 			</div>
